@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+html,
+body {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+.blocklyFlyoutScrollbar {
+  display: none;
+}
+
+.blocklyToolboxDiv {
+  @apply bg-slate-100 rounded-l-md;
+}
+
+.blocklyFlyoutBackground {
+  /* slate-300 */
+  fill: #cbd5e1;
+}
