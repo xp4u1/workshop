@@ -4,15 +4,23 @@
 
 /* todo: make this work & find correct transition */
 #inputField.correct {
+  @apply duration-200 bg-green-200;
+}
+
+#inputField.correct .squareButton {
   @apply duration-200 bg-green-400;
 }
 
 #inputField.incorrect {
+  @apply duration-200 bg-red-200;
+}
+
+#inputField.incorrect .squareButton {
   @apply duration-200 bg-red-400;
 }
 
 .squareButton {
-  @apply m-2 bg-slate-300 w-[100px] h-[100px] rounded-lg duration-300 ease-in-out;
+  @apply m-2 bg-slate-300 w-[100px] h-[100px] rounded-lg duration-300 ease-in-out active:bg-slate-500;
 }
 
 .squareButton.active {

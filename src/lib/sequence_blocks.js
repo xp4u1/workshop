@@ -44,6 +44,25 @@ Blockly.defineBlocksWithJsonArray([
     helpUrl: "",
   },
   {
+    type: "result",
+    message0: "zeige Ergebnis: %1",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "type",
+        options: [
+          ["richtig", "correct"],
+          ["falsch", "incorrect"],
+        ],
+      },
+    ],
+    previousStatement: null,
+    nextStatement: null,
+    colour: 20,
+    tooltip: "",
+    helpUrl: "",
+  },
+  {
     type: "sleep",
     message0: "warte %1 Millisekunden",
     args0: [
@@ -102,6 +121,18 @@ Blockly.JavaScript["highlightsquare"] = (block) => {
     await sleep(300);
     squares[index].classList.remove("active");
     await sleep(300);
+  }\n`;
+};
+
+Blockly.JavaScript["result"] = (block) => {
+  let dropdown = block.getFieldValue("type");
+
+  return `{
+    ${sleepFunction}
+    ${log(dropdown === "correct" ? "'Richtig!'" : "'Falsch!'")}
+    document.getElementById("inputField").classList.add("${dropdown}");
+    await sleep(200);
+    document.getElementById("inputField").classList.remove("${dropdown}");
   }\n`;
 };
 
