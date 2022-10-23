@@ -96,7 +96,7 @@ Blockly.JavaScript["click_event"] = (block) => {
   return `{
     document.querySelectorAll(".squareButton").forEach((element) => {
       element.addEventListener("click", async (event) => {
-        ${variable} = event.target.getAttribute("bid");
+        ${variable} = Number.parseInt(event.target.getAttribute("bid"));
         ${log(`"Quadrat Nummer " + ${variable} + " wurde angeklickt."`)}
 
         ${statements}
