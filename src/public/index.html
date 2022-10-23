@@ -1,214 +1,44 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workshop</title>
+    <title>Workshop :: Home</title>
 
     <link rel="stylesheet" href="../style/index.css" />
-    <link rel="stylesheet" href="../style/sequence.css" />
   </head>
-  <body class="flex flex-col">
-    <nav class="p-5">
-      <h1 class="text-3xl font-bold">Sequenz-Test</h1>
-    </nav>
+  <body>
+    <div class="lg:text-center lg:pt-28 p-10">
+      <h2 class="text-lg font-semibold text-indigo-600">Workshop</h2>
+      <p
+        class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl"
+      >
+        Programmieren lernen
+      </p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+        In diesem Workshop werdem die Grundlagen der Programmierlogik möglichst
+        einfach und selbsterklärend vermittelt. Dabei wird bewusst keine „echte“
+        Programmiersprache verwendet, um einen einfacheren Zugang zum
+        Programmieren zu ermöglichen.
+      </p>
 
-    <main class="flex flex-grow">
-      <section class="px-3 flex flex-col">
-        <div id="inputField">
-          <button class="squareButton" bid="1"></button>
-          <button class="squareButton" bid="2"></button>
-          <button class="squareButton" bid="3"></button>
-          <button class="squareButton" bid="4"></button>
-          <button class="squareButton" bid="5"></button>
-          <button class="squareButton" bid="6"></button>
-          <button class="squareButton" bid="7"></button>
-          <button class="squareButton" bid="8"></button>
-          <button class="squareButton" bid="9"></button>
-        </div>
-
-        <p
-          id="errorMessage"
-          class="hidden mt-5 text-center font-bold text-red-600 bg-red-200 rounded-md"
+      <p class="mt-10">
+        <a class="text-xl text-indigo-600 hover:underline" href="sequence.html"
+          >Sequenz-Test</a
         >
-          Beim Ausführen ist ein Fehler aufgetreten!
-        </p>
+      </p>
+    </div>
 
-        <div class="mt-5 text-right">
-          <button
-            class="bg-primary p-2 rounded-md text-white"
-            id="executeButton"
-          >
-            Code ausführen
-          </button>
-          <button
-            class="bg-slate-500 p-2 rounded-md text-white"
-            id="saveButton"
-          >
-            Speichern
-          </button>
-        </div>
-
-        <div
-          class="flex-grow mt-20 p-5 bg-slate-100 rounded-t-md w-[400px] font-mono"
-        >
-          <div class="space-y-2" id="console"></div>
-        </div>
-      </section>
-      <section class="w-full" id="blocklyDiv"></section>
-    </main>
-
-    <script type="module" src="../lib/sequence_blocks.js"></script>
-    <script type="module" src="../sequence_page.js"></script>
-
-    <xml
-      xmlns="https://developers.google.com/blockly/xml"
-      id="toolbox"
-      style="display: none"
-    >
-      <category name="Logik" colour="#5b80a5">
-        <block type="controls_if"></block>
-        <block type="logic_compare">
-          <field name="OP">EQ</field>
-        </block>
-        <block type="logic_operation">
-          <field name="OP">AND</field>
-        </block>
-        <block type="logic_negate"></block>
-        <block type="logic_boolean">
-          <field name="BOOL">TRUE</field>
-        </block>
-      </category>
-      <category name="Schleifen" colour="#5ba55b">
-        <block type="controls_repeat_ext">
-          <value name="TIMES">
-            <shadow type="math_number">
-              <field name="NUM">10</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="controls_whileUntil">
-          <field name="MODE">WHILE</field>
-        </block>
-        <block type="controls_for">
-          <field name="VAR" id="`$~uFDk1`ckU82$SCZ$=">i</field>
-          <value name="FROM">
-            <shadow type="math_number">
-              <field name="NUM">1</field>
-            </shadow>
-          </value>
-          <value name="TO">
-            <shadow type="math_number">
-              <field name="NUM">10</field>
-            </shadow>
-          </value>
-          <value name="BY">
-            <shadow type="math_number">
-              <field name="NUM">1</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="controls_forEach">
-          <field name="VAR" id="L/)Nk%^ybwIGS~+)SghT">j</field>
-        </block>
-        <block type="controls_flow_statements">
-          <field name="FLOW">BREAK</field>
-        </block>
-      </category>
-      <category name="Steuerung" colour="#a5745b">
-        <block type="click_event">
-          <value name="variable">
-            <block type="variables_get">
-              <field name="VAR" id="vyrC%PIc~A_]+%BC7RHp">QuadratIndex</field>
-            </block>
-          </value>
-        </block>
-        <block type="highlightsquare">
-          <value name="index">
-            <shadow type="math_number">
-              <field name="NUM">1</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="result"></block>
-        <block type="sleep">
-          <value name="millis">
-            <shadow type="math_number">
-              <field name="NUM">1000</field>
-            </shadow>
-          </value>
-        </block>
-      </category>
-      <category name="Zahlen" colour="#5b67a5">
-        <block type="math_number">
-          <field name="NUM">0</field>
-        </block>
-        <block type="math_arithmetic">
-          <field name="OP">ADD</field>
-          <value name="A">
-            <shadow type="math_number">
-              <field name="NUM">1</field>
-            </shadow>
-          </value>
-          <value name="B">
-            <shadow type="math_number">
-              <field name="NUM">1</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="math_random_int">
-          <value name="FROM">
-            <shadow type="math_number">
-              <field name="NUM">1</field>
-            </shadow>
-          </value>
-          <value name="TO">
-            <shadow type="math_number">
-              <field name="NUM">10</field>
-            </shadow>
-          </value>
-        </block>
-      </category>
-      <category name="Listen" colour="#745ba5">
-        <block type="lists_create_with">
-          <mutation items="0"></mutation>
-        </block>
-        <block type="lists_create_with">
-          <mutation items="3"></mutation>
-        </block>
-        <block type="lists_repeat">
-          <value name="NUM">
-            <shadow type="math_number">
-              <field name="NUM">5</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="lists_length"></block>
-        <block type="lists_isEmpty"></block>
-        <block type="lists_getIndex">
-          <mutation statement="false" at="true"></mutation>
-          <field name="MODE">GET</field>
-          <field name="WHERE">FROM_START</field>
-          <value name="VALUE">
-            <block type="variables_get">
-              <field name="VAR" id="QflBaFEdV%iZhx?)WgQ8">Liste</field>
-            </block>
-          </value>
-        </block>
-        <block type="lists_setIndex">
-          <mutation at="true"></mutation>
-          <field name="MODE">SET</field>
-          <field name="WHERE">FROM_START</field>
-          <value name="LIST">
-            <block type="variables_get">
-              <field name="VAR" id="QflBaFEdV%iZhx?)WgQ8">Liste</field>
-            </block>
-          </value>
-        </block>
-      </category>
-      <sep></sep>
-      <category name="Variablen" colour="#a55b80" custom="VARIABLE"></category>
-    </xml>
+    <footer class="absolute text-center bottom-4 w-full">
+      <p class="text-gray-400">
+        Dieses Projekt ist
+        <a
+          class="text-gray-500 hover:underline"
+          href="https://github.com/xp4u1/workshop"
+          >Open-Source</a
+        >.
+      </p>
+    </footer>
   </body>
 </html>
