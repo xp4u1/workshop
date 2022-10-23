@@ -41,7 +41,8 @@ const logMessage = (message, type = "info") => {
   element.innerText = message;
   element.className = type;
 
-  document.getElementById("console").appendChild(element);
+  let console = document.getElementById("console");
+  console.insertBefore(element, console.firstElementChild);
 };
 
 document.addEventListener("DOMContentLoaded", () => {

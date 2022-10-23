@@ -82,8 +82,12 @@ Blockly.defineBlocksWithJsonArray([
 ]);
 
 const sleepFunction = `const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));\n`;
-const log = (message) =>
-  `let p = document.createElement("p", {});\np.innerText = ${message};\ndocument.getElementById("console").appendChild(p);\n`;
+const log = (message) => `{
+    let console = document.getElementById("console");
+    let p = document.createElement("p", {});
+    p.innerText = ${message};
+    console.insertBefore(p, console.firstElementChild);
+  }`;
 
 Blockly.JavaScript["click_event"] = (block) => {
   let variable = Blockly.JavaScript.valueToCode(
