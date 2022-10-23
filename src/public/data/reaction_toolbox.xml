@@ -16,6 +16,7 @@
       <field name="BOOL">TRUE</field>
     </block>
   </category>
+  <!--
   <category name="Schleifen" colour="#5ba55b">
     <block type="controls_repeat_ext">
       <value name="TIMES">
@@ -52,14 +53,30 @@
       <field name="FLOW">BREAK</field>
     </block>
   </category>
+  -->
   <category name="Steuerung" colour="#a5745b">
-    <block type="sleep">
+    <block type="click_event"></block>
+    <block type="change_text">
+      <value name="text">
+        <shadow type="text">
+          <field name="TEXT"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="change_color">
+      <field name="color">#6633ff</field>
+    </block>
+  </category>
+  <category name="Zeit" colour="#9fa55b">
+    <block type="timer">
       <value name="millis">
         <shadow type="math_number">
           <field name="NUM">1000</field>
         </shadow>
       </value>
     </block>
+    <block type="clear_timers"></block>
+    <block type="timestamp"></block>
   </category>
   <category name="Zahlen" colour="#5b67a5">
     <block type="math_number">
@@ -91,41 +108,12 @@
       </value>
     </block>
   </category>
-  <category name="Listen" colour="#745ba5">
-    <block type="lists_create_with">
-      <mutation items="0"></mutation>
+  <category name="Text" colour="#5ba58c">
+    <block type="text">
+      <field name="TEXT"></field>
     </block>
-    <block type="lists_create_with">
-      <mutation items="3"></mutation>
-    </block>
-    <block type="lists_repeat">
-      <value name="NUM">
-        <shadow type="math_number">
-          <field name="NUM">5</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="lists_length"></block>
-    <block type="lists_isEmpty"></block>
-    <block type="lists_getIndex">
-      <mutation statement="false" at="true"></mutation>
-      <field name="MODE">GET</field>
-      <field name="WHERE">FROM_START</field>
-      <value name="VALUE">
-        <block type="variables_get">
-          <field name="VAR" id="QflBaFEdV%iZhx?)WgQ8">Liste</field>
-        </block>
-      </value>
-    </block>
-    <block type="lists_setIndex">
-      <mutation at="true"></mutation>
-      <field name="MODE">SET</field>
-      <field name="WHERE">FROM_START</field>
-      <value name="LIST">
-        <block type="variables_get">
-          <field name="VAR" id="QflBaFEdV%iZhx?)WgQ8">Liste</field>
-        </block>
-      </value>
+    <block type="text_join">
+      <mutation items="2"></mutation>
     </block>
   </category>
   <sep></sep>
