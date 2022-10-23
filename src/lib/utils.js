@@ -1,7 +1,18 @@
-export const random = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+export const logMessage = (message, type = "info") => {
+  let element = document.createElement("p");
+  element.innerText = message;
+  element.className = type;
+
+  let console = document.getElementById("console");
+  console.insertBefore(element, console.firstElementChild);
 };
 
-export const sleep = (milliseconds) => {
-  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+/**
+ * Removes all event listeners for each element with the attribute `data-event`.
+ */
+export const removeAllListeners = () => {
+  document.querySelectorAll("[data-event]").forEach((element) => {
+    let clone = element.cloneNode(true);
+    element.replaceWith(clone);
+  });
 };

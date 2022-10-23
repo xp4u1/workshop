@@ -2,72 +2,54 @@ import * as Blockly from "blockly";
 
 import De from "blockly/msg/de";
 Blockly.setLocale(De);
+Blockly.Msg["MATH_RANDOM_INT_TITLE"] = "Zufallszahl zwischen %1 und %2";
 
-const toolbox = document.getElementById("toolbox");
-const options = {
-  toolbox: toolbox,
-  collapse: true,
-  comments: true,
-  disable: true,
-  maxBlocks: Infinity,
-  trashcan: true,
-  horizontalLayout: false,
-  toolboxPosition: "start",
-  css: true,
-  media: "media/",
-  rtl: false,
-  scrollbars: true,
-  sounds: true,
-  oneBasedIndex: true,
-  grid: {
-    spacing: 20,
-    length: 1,
-    colour: "#888",
-    snap: true,
-  },
-};
+import { logMessage, removeAllListeners } from "./lib/utils";
 
 const lang = "JavaScript";
 
-const removeAllListeners = () => {
-  document.querySelectorAll(".squareButton").forEach((element) => {
-    let clone = element.cloneNode(true);
-    element.replaceWith(clone);
-  });
-};
-
-const logMessage = (message, type = "info") => {
-  let element = document.createElement("p");
-  element.innerText = message;
-  element.className = type;
-
-  let console = document.getElementById("console");
-  console.insertBefore(element, console.firstElementChild);
-};
-
 document.addEventListener("DOMContentLoaded", () => {
-  const workspace = Blockly.inject("blocklyDiv", options);
+  const workspace = Blockly.inject("blocklyDiv", {
+    toolbox: document.getElementById("toolbox"),
+    collapse: true,
+    comments: true,
+    disable: true,
+    maxBlocks: Infinity,
+    trashcan: true,
+    horizontalLayout: false,
+    toolboxPosition: "start",
+    css: true,
+    media: "media/",
+    rtl: false,
+    scrollbars: true,
+    sounds: true,
+    oneBasedIndex: true,
+    grid: {
+      spacing: 20,
+      length: 1,
+      colour: "#888",
+      snap: true,
+    },
+  });
 
   try {
     Blockly.serialization.workspaces.load(
-      JSON.parse(localStorage.getItem("workspace")),
+      JSON.parse(localStorage.getItem(document.title)),
       workspace
     );
   } catch {
-    console.warn("Workspace konnte nicht geladen werden.");
-    // localStorage.removeItem("workspace");
+    // Ignore.
   }
 
   document.getElementById("saveButton").addEventListener("click", () => {
     localStorage.setItem(
-      "workspace",
+      document.title,
       JSON.stringify(Blockly.serialization.workspaces.save(workspace))
     );
     logMessage("Deine Blöcke wurden gespeichert.");
   });
 
   const executeButton = document.getElementById("executeButton");
-
   executeButton.addEventListener("click", () => {
     window.LoopTrap = 1000;
     Blockly[lang].INFINITE_LOOP_TRAP =

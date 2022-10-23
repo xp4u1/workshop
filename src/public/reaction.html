@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workshop :: Sequenz-Test</title>
+    <title>Workshop :: Reaktionstest</title>
 
     <link rel="stylesheet" href="../style/index.css" />
     <link rel="stylesheet" href="../style/sequence.css" />
   </head>
   <body class="flex flex-col">
     <nav class="p-5 flex justify-between items-center">
-      <h1 class="text-gray-900 text-3xl font-bold">Sequenz-Test</h1>
+      <h1 class="text-gray-900 text-3xl font-bold">Reaktionstest</h1>
       <a class="text-gray-900 text-md font-medium" href="./index.html"
         >Zurück zur Startseite -></a
       >
@@ -19,16 +19,14 @@
 
     <main class="flex flex-grow">
       <section class="px-3 flex flex-col">
-        <div id="inputField">
-          <button class="squareButton" data-id="1" data-event></button>
-          <button class="squareButton" data-id="2" data-event></button>
-          <button class="squareButton" data-id="3" data-event></button>
-          <button class="squareButton" data-id="4" data-event></button>
-          <button class="squareButton" data-id="5" data-event></button>
-          <button class="squareButton" data-id="6" data-event></button>
-          <button class="squareButton" data-id="7" data-event></button>
-          <button class="squareButton" data-id="8" data-event></button>
-          <button class="squareButton" data-id="9" data-event></button>
+        <div class="bg-slate-100 rounded-md w-[400px] h-[400px] p-10">
+          <button
+            id="inputButton"
+            class="w-full h-full bg-primary rounded-md text-white font-semibold"
+            data-event
+          >
+            Klicke hier, um zu beginnen.
+          </button>
         </div>
 
         <p
@@ -63,7 +61,6 @@
     </main>
 
     <script type="module" src="../lib/blocks.js"></script>
-    <script type="module" src="../lib/sequence_blocks.js"></script>
     <script type="module" src="../page.js"></script>
 
     <xml
@@ -121,21 +118,6 @@
         </block>
       </category>
       <category name="Steuerung" colour="#a5745b">
-        <block type="click_event">
-          <value name="variable">
-            <block type="variables_get">
-              <field name="VAR" id="vyrC%PIc~A_]+%BC7RHp">QuadratIndex</field>
-            </block>
-          </value>
-        </block>
-        <block type="highlightsquare">
-          <value name="index">
-            <shadow type="math_number">
-              <field name="NUM">1</field>
-            </shadow>
-          </value>
-        </block>
-        <block type="result"></block>
         <block type="sleep">
           <value name="millis">
             <shadow type="math_number">

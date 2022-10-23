@@ -1,5 +1,7 @@
 import * as Blockly from "blockly";
 
+import { log, sleepFunction } from "./code";
+
 Blockly.defineBlocksWithJsonArray([
   {
     type: "click_event",
@@ -62,32 +64,7 @@ Blockly.defineBlocksWithJsonArray([
     tooltip: "",
     helpUrl: "",
   },
-  {
-    type: "sleep",
-    message0: "warte %1 Millisekunden",
-    args0: [
-      {
-        type: "input_value",
-        name: "millis",
-        check: "Number",
-      },
-    ],
-    inputsInline: true,
-    previousStatement: null,
-    nextStatement: null,
-    colour: 20,
-    tooltip: "",
-    helpUrl: "",
-  },
 ]);
-
-const sleepFunction = `const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));\n`;
-const log = (message) => `{
-    let console = document.getElementById("console");
-    let p = document.createElement("p", {});
-    p.innerText = ${message};
-    console.insertBefore(p, console.firstElementChild);
-  }`;
 
 Blockly.JavaScript["click_event"] = (block) => {
   let variable = Blockly.JavaScript.valueToCode(
@@ -100,7 +77,7 @@ Blockly.JavaScript["click_event"] = (block) => {
   return `{
     document.querySelectorAll(".squareButton").forEach((element) => {
       element.addEventListener("click", async (event) => {
-        ${variable} = Number.parseInt(event.target.getAttribute("bid"));
+        ${variable} = Number.parseInt(event.target.getAttribute("data-id"));
         ${log(`"Quadrat Nummer " + ${variable} + " wurde angeklickt."`)}
 
         ${statements}
@@ -138,14 +115,4 @@ Blockly.JavaScript["result"] = (block) => {
     await sleep(200);
     document.getElementById("inputField").classList.remove("${dropdown}");
   }\n`;
-};
-
-Blockly.JavaScript["sleep"] = (block) => {
-  let value_millis = Blockly.JavaScript.valueToCode(
-    block,
-    "millis",
-    Blockly.JavaScript.ORDER_ATOMIC
-  );
-
-  return `{\n${sleepFunction}await sleep(${value_millis});\n}\n`;
 };
