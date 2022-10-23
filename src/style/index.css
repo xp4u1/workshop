@@ -22,3 +22,19 @@ body {
   /* slate-300 */
   fill: #cbd5e1;
 }
+
+.disabled {
+  @apply opacity-70;
+}
+
+#console p {
+  @apply bg-slate-200 rounded-md px-4 py-2;
+}
+
+#console p.error {
+  @apply bg-red-200 text-red-700 font-bold;
+}
+
+#console p.interpreter {
+  @apply bg-slate-300;
+}
