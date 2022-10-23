@@ -29,6 +29,13 @@ const options = {
 
 const lang = "JavaScript";
 
+const removeAllListeners = () => {
+  document.querySelectorAll(".squareButton").forEach((element) => {
+    let clone = element.cloneNode(true);
+    element.replaceWith(clone);
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const workspace = Blockly.inject("blocklyDiv", options);
 
@@ -50,14 +57,21 @@ document.addEventListener("DOMContentLoaded", () => {
     executeButton.classList.add("disabled");
     executeButton.disabled = true;
 
-    eval(`(async function(){\n${code}\n})()`)
-      .catch((error) => {
-        document.getElementById("errorMessage").classList.remove("hidden");
-        console.error(error);
-      })
-      .finally(() => {
-        executeButton.classList.remove("disabled");
-        executeButton.disabled = false;
-      });
+    removeAllListeners();
+
+    try {
+      eval(`(async function(){\n${code}\n})()`)
+        .catch((error) => {
+          document.getElementById("errorMessage").classList.remove("hidden");
+          console.error(error);
+        })
+        .finally(() => {
+          executeButton.classList.remove("disabled");
+          executeButton.disabled = false;
+        });
+    } catch {
+      document.getElementById("errorMessage").classList.remove("hidden");
+      console.error(error);
+    }
   });
 });

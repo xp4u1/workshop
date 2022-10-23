@@ -17,15 +17,15 @@
     <main class="flex flex-grow">
       <section class="px-3">
         <div id="inputField">
-          <button class="squareButton"></button>
-          <button class="squareButton"></button>
-          <button class="squareButton"></button>
-          <button class="squareButton"></button>
-          <button class="squareButton"></button>
-          <button class="squareButton"></button>
-          <button class="squareButton"></button>
-          <button class="squareButton"></button>
-          <button class="squareButton"></button>
+          <button class="squareButton" bid="1"></button>
+          <button class="squareButton" bid="2"></button>
+          <button class="squareButton" bid="3"></button>
+          <button class="squareButton" bid="4"></button>
+          <button class="squareButton" bid="5"></button>
+          <button class="squareButton" bid="6"></button>
+          <button class="squareButton" bid="7"></button>
+          <button class="squareButton" bid="8"></button>
+          <button class="squareButton" bid="9"></button>
         </div>
 
         <p
@@ -111,6 +111,13 @@
         </block>
       </category>
       <category name="Steuerung" colour="#a5745b">
+        <block type="click_event">
+          <value name="variable">
+            <block type="variables_get">
+              <field name="VAR" id="vyrC%PIc~A_]+%BC7RHp">QuadratIndex</field>
+            </block>
+          </value>
+        </block>
         <block type="highlightsquare">
           <value name="index">
             <shadow type="math_number">
@@ -119,7 +126,6 @@
           </value>
         </block>
         <block type="sleep">
-          <field name="Millisekunden">Warte</field>
           <value name="millis">
             <shadow type="math_number">
               <field name="NUM">1000</field>

@@ -12,7 +12,7 @@
 }
 
 .squareButton {
-  @apply m-2 bg-slate-300 w-[100px] h-[100px] rounded-lg duration-300 ease-in-out active:bg-primary;
+  @apply m-2 bg-slate-300 w-[100px] h-[100px] rounded-lg duration-300 ease-in-out;
 }
 
 .squareButton.active {
