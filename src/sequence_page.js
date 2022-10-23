@@ -36,12 +36,33 @@ const removeAllListeners = () => {
   });
 };
 
+const logMessage = (message, type = "info") => {
+  let element = document.createElement("p");
+  element.innerText = message;
+  element.className = type;
+
+  document.getElementById("console").appendChild(element);
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const workspace = Blockly.inject("blocklyDiv", options);
 
-  document.getElementById("compileButton").addEventListener("click", () => {
-    const code = Blockly[lang].workspaceToCode(workspace);
-    console.log(code);
+  try {
+    Blockly.serialization.workspaces.load(
+      JSON.parse(localStorage.getItem("workspace")),
+      workspace
+    );
+  } catch {
+    console.warn("Workspace konnte nicht geladen werden.");
+    // localStorage.removeItem("workspace");
+  }
+
+  document.getElementById("saveButton").addEventListener("click", () => {
+    localStorage.setItem(
+      "workspace",
+      JSON.stringify(Blockly.serialization.workspaces.save(workspace))
+    );
+    logMessage("Deine Blöcke wurden gespeichert.");
   });
 
   const executeButton = document.getElementById("executeButton");
@@ -58,11 +79,18 @@ document.addEventListener("DOMContentLoaded", () => {
     executeButton.disabled = true;
 
     removeAllListeners();
+    document.getElementById("console").innerHTML = "";
+
+    if (code.includes("addEventListener")) {
+      logMessage("Die Events wurden aktualisiert.", "interpreter");
+    } else {
+      logMessage("Code wird ausgeführt.", "interpreter");
+    }
 
     try {
       eval(`(async function(){\n${code}\n})()`)
         .catch((error) => {
-          document.getElementById("errorMessage").classList.remove("hidden");
+          logMessage("Es ist ein Fehler beim Ausführen aufgetreten.", "error");
           console.error(error);
         })
         .finally(() => {
@@ -70,8 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
           executeButton.disabled = false;
         });
     } catch {
-      document.getElementById("errorMessage").classList.remove("hidden");
-      console.error(error);
+      logMessage("Es ist ein Fehler beim Ausführen aufgetreten.", "error");
     }
   });
 });

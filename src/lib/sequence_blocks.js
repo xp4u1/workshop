@@ -63,6 +63,8 @@ Blockly.defineBlocksWithJsonArray([
 ]);
 
 const sleepFunction = `const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));\n`;
+const log = (message) =>
+  `let p = document.createElement("p", {});\np.innerText = ${message};\ndocument.getElementById("console").appendChild(p);\n`;
 
 Blockly.JavaScript["click_event"] = (block) => {
   let variable = Blockly.JavaScript.valueToCode(
@@ -76,6 +78,8 @@ Blockly.JavaScript["click_event"] = (block) => {
     document.querySelectorAll(".squareButton").forEach((element) => {
       element.addEventListener("click", async (event) => {
         ${variable} = event.target.getAttribute("bid");
+        ${log(`"Quadrat Nummer " + ${variable} + " wurde angeklickt."`)}
+
         ${statements}
       })
     })

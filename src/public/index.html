@@ -15,7 +15,7 @@
     </nav>
 
     <main class="flex flex-grow">
-      <section class="px-3">
+      <section class="px-3 flex flex-col">
         <div id="inputField">
           <button class="squareButton" bid="1"></button>
           <button class="squareButton" bid="2"></button>
@@ -44,10 +44,16 @@
           </button>
           <button
             class="bg-slate-500 p-2 rounded-md text-white"
-            id="compileButton"
+            id="saveButton"
           >
-            JavaScript erzeugen
+            Speichern
           </button>
+        </div>
+
+        <div
+          class="flex-grow mt-20 p-5 bg-slate-100 rounded-t-md w-[400px] font-mono"
+        >
+          <div class="space-y-2" id="console"></div>
         </div>
       </section>
       <section class="w-full" id="blocklyDiv"></section>
