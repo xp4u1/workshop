@@ -1,4 +1,5 @@
-import * as Blockly from "blockly";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator } from "blockly/javascript";
 
 Blockly.defineBlocksWithJsonArray([
   {
@@ -92,24 +93,24 @@ Blockly.defineBlocksWithJsonArray([
   },
 ]);
 
-Blockly.JavaScript["change_text"] = (block) => {
-  let text = Blockly.JavaScript.valueToCode(
+javascriptGenerator["change_text"] = (block) => {
+  let text = javascriptGenerator.valueToCode(
     block,
     "text",
-    Blockly.JavaScript.ORDER_ATOMIC
+    javascriptGenerator.ORDER_ATOMIC
   );
 
   return `document.getElementById("inputButton").innerText = ${text};\n`;
 };
 
-Blockly.JavaScript["change_color"] = (block) => {
+javascriptGenerator["change_color"] = (block) => {
   let color = block.getFieldValue("color");
 
   return `document.getElementById("inputButton").style.backgroundColor = "${color}";\n`;
 };
 
-Blockly.JavaScript["click_event"] = (block) => {
-  let statement = Blockly.JavaScript.statementToCode(block, "statement");
+javascriptGenerator["click_event"] = (block) => {
+  let statement = javascriptGenerator.statementToCode(block, "statement");
 
   return `
     document.getElementById("inputButton").addEventListener("mousedown", async (event) => {
@@ -117,17 +118,17 @@ Blockly.JavaScript["click_event"] = (block) => {
     });\n`;
 };
 
-Blockly.JavaScript["timestamp"] = (_block) => {
-  return ["Date.now()", Blockly.JavaScript.ORDER_NONE];
+javascriptGenerator["timestamp"] = (_block) => {
+  return ["Date.now()", javascriptGenerator.ORDER_NONE];
 };
 
-Blockly.JavaScript["timer"] = (block) => {
-  let millis = Blockly.JavaScript.valueToCode(
+javascriptGenerator["timer"] = (block) => {
+  let millis = javascriptGenerator.valueToCode(
     block,
     "millis",
-    Blockly.JavaScript.ORDER_ATOMIC
+    javascriptGenerator.ORDER_ATOMIC
   );
-  let statement = Blockly.JavaScript.statementToCode(block, "statement");
+  let statement = javascriptGenerator.statementToCode(block, "statement");
 
   return `
     setTimeout(() => {
@@ -136,7 +137,7 @@ Blockly.JavaScript["timer"] = (block) => {
   `;
 };
 
-Blockly.JavaScript["clear_timers"] = (_block) => {
+javascriptGenerator["clear_timers"] = (_block) => {
   // https://stackoverflow.com/questions/3141064/how-to-stop-all-timeouts-and-intervals-using-javascript
   return `
     let highestTimeoutId = setTimeout(() => {});

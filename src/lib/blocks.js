@@ -1,4 +1,5 @@
-import * as Blockly from "blockly";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator } from "blockly/javascript";
 
 import { sleepFunction } from "./code";
 
@@ -22,11 +23,11 @@ Blockly.defineBlocksWithJsonArray([
   },
 ]);
 
-Blockly.JavaScript["sleep"] = (block) => {
-  let value_millis = Blockly.JavaScript.valueToCode(
+javascriptGenerator["sleep"] = (block) => {
+  let value_millis = javascriptGenerator.valueToCode(
     block,
     "millis",
-    Blockly.JavaScript.ORDER_ATOMIC
+    javascriptGenerator.ORDER_ATOMIC
   );
 
   return `{\n${sleepFunction}await sleep(${value_millis});\n}\n`;
