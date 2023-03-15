@@ -1,4 +1,5 @@
 import * as Blockly from "blockly";
+import { javascriptGenerator } from "blockly/javascript";
 
 import De from "blockly/msg/de";
 Blockly.setLocale(De);
@@ -6,8 +7,6 @@ Blockly.Msg["MATH_RANDOM_INT_TITLE"] = "Zufallszahl zwischen %1 und %2";
 
 import { getCookies, logMessage, removeAllListeners } from "./lib/utils";
 import { createRoom, socket } from "./lib/remote";
-
-const lang = "JavaScript";
 
 const newRoom = () => {
   createRoom().then(({ id, secret }) => {
@@ -95,10 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const executeButton = document.getElementById("executeButton");
   executeButton.addEventListener("click", () => {
     window.LoopTrap = 1000;
-    Blockly[lang].INFINITE_LOOP_TRAP =
+    javascriptGenerator.INFINITE_LOOP_TRAP =
       'if(--window.LoopTrap == 0) throw "Infinite loop.";\n';
 
-    const code = Blockly[lang].workspaceToCode(workspace);
+    const code = javascriptGenerator.workspaceToCode(workspace);
 
     document.getElementById("errorMessage").classList.add("hidden");
     executeButton.classList.add("disabled");

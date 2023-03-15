@@ -1,4 +1,5 @@
-import * as Blockly from "blockly";
+import * as Blockly from "blockly/core";
+import { javascriptGenerator } from "blockly/javascript";
 
 import { log, sleepFunction } from "./code";
 
@@ -66,13 +67,13 @@ Blockly.defineBlocksWithJsonArray([
   },
 ]);
 
-Blockly.JavaScript["click_event"] = (block) => {
-  let variable = Blockly.JavaScript.valueToCode(
+javascriptGenerator["click_event"] = (block) => {
+  let variable = javascriptGenerator.valueToCode(
     block,
     "variable",
-    Blockly.JavaScript.ORDER_ATOMIC
+    javascriptGenerator.ORDER_ATOMIC
   );
-  let statements = Blockly.JavaScript.statementToCode(block, "statement");
+  let statements = javascriptGenerator.statementToCode(block, "statement");
 
   return `{
     document.querySelectorAll(".squareButton").forEach((element) => {
@@ -86,11 +87,11 @@ Blockly.JavaScript["click_event"] = (block) => {
   }`;
 };
 
-Blockly.JavaScript["highlightsquare"] = (block) => {
-  let value_index = Blockly.JavaScript.valueToCode(
+javascriptGenerator["highlightsquare"] = (block) => {
+  let value_index = javascriptGenerator.valueToCode(
     block,
     "index",
-    Blockly.JavaScript.ORDER_ATOMIC
+    javascriptGenerator.ORDER_ATOMIC
   );
 
   return `{
@@ -105,7 +106,7 @@ Blockly.JavaScript["highlightsquare"] = (block) => {
   }\n`;
 };
 
-Blockly.JavaScript["result"] = (block) => {
+javascriptGenerator["result"] = (block) => {
   let dropdown = block.getFieldValue("type");
 
   return `{
