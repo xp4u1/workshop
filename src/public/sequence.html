@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../style/index.css" />
     <link rel="stylesheet" href="../style/sequence.css" />
   </head>
-  <body class="flex flex-col">
+  <body data-app="sequence" class="flex flex-col">
     <nav class="p-5 flex justify-between items-center">
       <h1 class="text-gray-900 text-3xl font-bold">Sequenz-Test</h1>
       <a class="text-gray-900 text-md font-medium" href="./index.html"
@@ -17,18 +17,10 @@
       >
     </nav>
 
-    <main class="flex flex-grow">
+    <main class="flex flex-grow selection:bg-slate-300">
       <section class="px-3 flex flex-col">
-        <div id="inputField">
-          <button class="squareButton" data-id="1" data-event></button>
-          <button class="squareButton" data-id="2" data-event></button>
-          <button class="squareButton" data-id="3" data-event></button>
-          <button class="squareButton" data-id="4" data-event></button>
-          <button class="squareButton" data-id="5" data-event></button>
-          <button class="squareButton" data-id="6" data-event></button>
-          <button class="squareButton" data-id="7" data-event></button>
-          <button class="squareButton" data-id="8" data-event></button>
-          <button class="squareButton" data-id="9" data-event></button>
+        <div id="portal">
+          <include src="./app/sequence.html"></include>
         </div>
 
         <p
