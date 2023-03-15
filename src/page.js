@@ -4,9 +4,45 @@ import De from "blockly/msg/de";
 Blockly.setLocale(De);
 Blockly.Msg["MATH_RANDOM_INT_TITLE"] = "Zufallszahl zwischen %1 und %2";
 
-import { logMessage, removeAllListeners } from "./lib/utils";
+import { getCookies, logMessage, removeAllListeners } from "./lib/utils";
+import { createRoom, socket } from "./lib/remote";
 
 const lang = "JavaScript";
+
+const newRoom = () => {
+  createRoom().then(({ id, secret }) => {
+    document.cookie = `room=${id};max-age=86400`;
+    document.cookie = `secret=${secret};max-age=86400`;
+
+    logMessage(`Für dich wurde der Raum ${id} erstellt.`);
+  });
+};
+
+const sendCode = (code) => {
+  const cookies = getCookies();
+  socket.emit(
+    "send_app",
+    {
+      content: {
+        appId: document.body.getAttribute("data-app"),
+        code: code,
+      },
+      room: cookies.get("room"),
+      secret: cookies.get("secret"),
+    },
+    (error) => {
+      if (error) {
+        console.error(`Cannot send code (${error}). Creating new room...`);
+
+        newRoom();
+        // Try again.
+        sendCode(code);
+      } else {
+        logMessage(`Code wurde an den Raum ${cookies.get("room")} verschickt.`);
+      }
+    }
+  );
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   const workspace = Blockly.inject("blocklyDiv", {
@@ -31,6 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
       snap: true,
     },
   });
+
+  const cookies = getCookies();
+  if (!cookies.has("room") || !cookies.has("secret")) {
+    newRoom();
+  } else {
+    logMessage(`Du bist mit Raum ${cookies.get("room")} verbunden.`);
+  }
 
   try {
     Blockly.serialization.workspaces.load(
@@ -68,6 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
       logMessage("Die Events wurden aktualisiert.", "interpreter");
     } else {
       logMessage("Code wird ausgeführt.", "interpreter");
+    }
+
+    if (socket.connected) {
+      sendCode(code);
     }
 
     try {

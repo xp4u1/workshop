@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workshop :: Companion</title>
+
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/sequence.css" />
+  </head>
+  <body class="flex flex-col selection:bg-slate-300">
+    <!-- <nav class="p-5 flex justify-between items-center">
+      <h1 class="text-gray-900 text-3xl font-bold">App Workshop</h1>
+    </nav> -->
+
+    <main class="flex flex-grow flex-col justify-center items-center">
+      <section data-app="reaction" style="display: none">
+        <include src="./app/reaction.html"></include>
+      </section>
+
+      <section data-app="sequence" style="display: none">
+        <include src="./app/sequence.html"></include>
+      </section>
+
+      <section data-app="unknown" style="display: none">
+        <p>asdf</p>
+      </section>
+
+      <section
+        id="connect"
+        class="text-gray-900 p-10 space-y-5 text-center block"
+      >
+        <h2 id="title" class="text-2xl font-bold">
+          Du bist noch nicht verbunden!
+        </h2>
+
+        <form id="connectForm" class="flex flex-col gap-2">
+          <input
+            id="roomInput"
+            type="number"
+            placeholder="Raum ID"
+            class="bg-slate-100 rounded-lg h-10 px-5"
+          />
+
+          <p
+            id="errorLabel"
+            class="text-md bg-red-200 text-red-800 rounded-lg p-2"
+            style="display: none"
+          ></p>
+
+          <div class="self-end mt-3">
+            <button
+              class="bg-primary py-2 px-3 rounded-lg text-white"
+              type="submit"
+            >
+              Verbinden
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section id="console" style="display: none">
+        <!-- Hide console output -->
+      </section>
+    </main>
+
+    <script type="module" src="../companion.js"></script>
+  </body>
+</html>

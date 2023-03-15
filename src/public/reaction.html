@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../style/index.css" />
     <link rel="stylesheet" href="../style/sequence.css" />
   </head>
-  <body class="flex flex-col">
+  <body data-app="reaction" class="flex flex-col selection:bg-slate-300">
     <nav class="p-5 flex justify-between items-center">
       <h1 class="text-gray-900 text-3xl font-bold">Reaktionstest</h1>
       <a class="text-gray-900 text-md font-medium" href="./index.html"
@@ -19,14 +19,8 @@
 
     <main class="flex flex-grow">
       <section class="px-3 flex flex-col">
-        <div class="bg-slate-100 rounded-md w-[400px] h-[400px] p-10">
-          <button
-            id="inputButton"
-            class="w-full h-full bg-primary rounded-md text-white font-semibold"
-            data-event
-          >
-            Du kannst diesen Text verändern.
-          </button>
+        <div id="portal">
+          <include src="./app/reaction.html"></include>
         </div>
 
         <p

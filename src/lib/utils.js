@@ -16,3 +16,15 @@ export const removeAllListeners = () => {
     element.replaceWith(clone);
   });
 };
+
+/**
+ * Get all cookies as map.
+ * @returns Cookies
+ */
+export const getCookies = () => {
+  return new Map(
+    document.cookie.split(";").map((cookie) => {
+      return cookie.trim().split("=").map(decodeURIComponent);
+    })
+  );
+};
