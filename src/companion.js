@@ -1,4 +1,5 @@
 import { io } from "socket.io-client";
+import { removeAllListeners } from "./lib/utils";
 
 const socket = io();
 
@@ -41,6 +42,7 @@ socket.on("payload", ({ appId, code }) => {
     .forEach((element) => (element.style.display = "none"));
   document.querySelector(`section[data-app=${appId}]`).style.display = "unset";
 
+  removeAllListeners();
   eval(`(async function(){\n${code}\n})()`)
     .catch((error) => {
       console.error("Cannot execute the code.");
