@@ -20,9 +20,11 @@ Bei diesem Test soll die Reaktion trainiert werden. Der Benutzer soll, sobald si
 
 ### Lösungen
 
-Musterlösungen für die Apps sind im Verzeichnis `docs/` zu finden.
+Musterlösungen für die Apps sind im Verzeichnis [`/docs`](./docs) zu finden.
 
-## Entwicklung
+## Entwicklung und Installation
+
+### Quickstart
 
 ```sh
 # Repo klonen
@@ -34,3 +36,27 @@ $ yarn
 # Anwendung im Entwicklungsmodus starten
 $ yarn start
 ```
+
+### Build
+
+```sh
+# Build (production ready)
+$ yarn build
+
+# In Unterverzeichnis, z. B. "example.com/workshop"
+$ yarn build --public-url "/workshop"
+```
+
+Nach dem Erstellen befindet sich der Build im Verzeichnis `/dist`. Die Dateien im `/dist/web` Verzeichnis können auch ohne den Express-Server ausgeführt werden. Wenn der Express-Server verwendet wird, kann man ein Test-Gerät hinzufügen, indem man `deine-url.com/companion.html` aufruft. Sobald der Anwender auf „Code ausführen“ klickt, wird der generierte Code an das Test-Gerät gesendet. Die Companion-Seite kann im Browser aufgerufen werden, aber es besteht auch die Möglichkeit, eine App zu verwenden. Weitere Informationen dazu findest du [hier](./app).
+
+### Docker
+
+```sh
+# Image bauen
+$ docker build -t workshop
+
+# Container erstellen
+$ docker run -it --name workshop --rm -p 3000:3000 workshop
+```
+
+Die Anwendung kann auch als Docker-Container ausgeführt werden. Der Vorteil dieser Methode ist, dass das Gerät, auf dem die Anwendung ausgeführt werden soll, keine Node-Installation benötigt. Docker-Container sind unabhängig von der zugrunde liegenden Infrastruktur und sorgen somit für eine höhere Portabilität der Anwendung. Mit dieser Methode kann die Anwendung auf allen Maschinen und Architekturen, die die Node-Alpine Images unterstützen, ausgeführt werden. Das bedeutet, dass die Anwendung problemlos auf verschiedenen Betriebssystemen oder Cloud-Plattformen ausgeführt werden kann, ohne dass zusätzliche Anpassungen notwendig sind.
