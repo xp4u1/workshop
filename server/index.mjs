@@ -8,7 +8,7 @@ const httpServer = createServer(app);
 const io = new Server(httpServer);
 
 // Serve static files.
-app.use(express.static("../dist"));
+app.use(express.static(process.env.STATIC_DIR || "dist/web"));
 
 // {id: secret}
 const rooms = new Map();
@@ -71,7 +71,7 @@ io.on("connection", (socket) => {
   });
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 httpServer.listen(port, () => {
   console.log(`\n  [✓] Server running at: http://localhost:${port}`);
 });
