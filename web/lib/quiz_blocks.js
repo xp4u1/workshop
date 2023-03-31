@@ -20,7 +20,7 @@ Blockly.defineBlocksWithJsonArray([
   },
   {
     type: "answer",
-    message0: "Anwort",
+    message0: "Antwort",
     output: "String",
     colour: 20,
     tooltip: "Aktueller Inhalt des Eingabefelds",
