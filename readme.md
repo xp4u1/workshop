@@ -18,6 +18,12 @@ Bei diesem Test soll das Gedächtnis trainiert werden. Das Ziel ist es, auf den 
 
 Bei diesem Test soll die Reaktion trainiert werden. Der Benutzer soll, sobald sich die Farbe des Textfelds ändert, auf dieses klicken. Es wird eine zufällige Anzahl von Sekunden gewartet und dann die Farbe geändert. Dabei wird dann die Zeit zwischen dem Klick und der Änderung der Farbe gemessen.
 
+### Wissensquiz
+
+![Reaktion](./docs/quiz/preview.png)
+
+Bei diesem Test soll auf beliebige Fragen geantwortet werden. Dabei kann man kleines Allgemeinwissensquiz erstellen oder ein Kopfrechentrainer erstellen.
+
 ### Lösungen
 
 Musterlösungen für die Apps sind im Verzeichnis [`/docs`](./docs) zu finden.
