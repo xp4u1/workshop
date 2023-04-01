@@ -1,7 +1,7 @@
 import * as Blockly from "blockly/core";
 import { javascriptGenerator } from "blockly/javascript";
 
-import { sleepFunction } from "./code";
+import { log, sleepFunction } from "./code";
 
 Blockly.defineBlocksWithJsonArray([
   {
@@ -21,6 +21,25 @@ Blockly.defineBlocksWithJsonArray([
     tooltip: "",
     helpUrl: "",
   },
+  {
+    type: "result",
+    message0: "zeige Ergebnis: %1",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "type",
+        options: [
+          ["richtig", "correct"],
+          ["falsch", "incorrect"],
+        ],
+      },
+    ],
+    previousStatement: null,
+    nextStatement: null,
+    colour: 20,
+    tooltip: "",
+    helpUrl: "",
+  },
 ]);
 
 javascriptGenerator["sleep"] = (block) => {
@@ -31,4 +50,16 @@ javascriptGenerator["sleep"] = (block) => {
   );
 
   return `{\n${sleepFunction}await sleep(${value_millis});\n}\n`;
+};
+
+javascriptGenerator["result"] = (block) => {
+  let dropdown = block.getFieldValue("type");
+
+  return `{
+    ${sleepFunction}
+    ${log(dropdown === "correct" ? "'Richtig!'" : "'Falsch!'")}
+    document.querySelectorAll(".inputField").forEach((element) => element.classList.add("${dropdown}"));
+    await sleep(200);
+    document.querySelectorAll(".inputField").forEach((element) => element.classList.remove("${dropdown}"));
+  }\n`;
 };

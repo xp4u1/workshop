@@ -6,17 +6,29 @@ In diesem Workshop werdem die Grundlagen der Programmierlogik möglichst einfach
 
 ## Apps
 
-### Sequenz-Test
+### Wissensquiz
 
-![Sequenz](./docs/sequence/preview.png)
+![Reaktion](./docs/quiz/preview.png)
 
-Bei diesem Test soll das Gedächtnis trainiert werden. Das Ziel ist es, auf den neun Feldern eine zufällige Reihenfolge anzuzeigen, die der Benutzer dann eingeben muss. Dabei wird die Sequenz in jedem Schritt um eine Eingabe länger.
+> Erweitere deine geistigen Horizonte und stelle dich einer Herausforderung! In diesem Test bist du eingeladen, dein Wissen auf die Probe zu stellen, indem du auf eine Vielzahl von Fragen antwortest. Lass deine kreative Ader fließen und gestalte dein eigenes kleines Allgemeinwissensquiz oder teste deine mathematischen Fähigkeiten mit einem herausfordernden Kopfrechentraining. Egal, ob du ein Neuling oder ein Meister auf deinem Gebiet bist, dieser Test wird deine grauen Zellen zum Glühen bringen und dein Vertrauen in deine Fähigkeiten stärken. Also tritt an und entdecke, was du alles erreichen kannst!
+
+Diese App ist die perfekte Einführung in die Welt der Programmierung. Hier lernen Anfänger, wie man logische Wenn-Dann-Verknüpfungen erstellt und wie man Variablen verwendet. Die Schüler werden ermutigt, ihre eigenen Ideen zu entwickeln und ihre Kreativität durch das Programmieren von eigenen Quiz-Ideen zu fördern. Zusätzlich bietet diese App die Möglichkeit, Schülern eine erste Einführung in Listen zu geben. Ein Beispiel dafür ist das [Endlosquiz](./docs/quiz/endless.png), bei dem Schüler Listen mit Fragen und Antworten erstellen, um diese dann für die Validierung zu benutzen.
 
 ### Reaktionstest
 
 ![Reaktion](./docs/reaction/preview.png)
 
-Bei diesem Test soll die Reaktion trainiert werden. Der Benutzer soll, sobald sich die Farbe des Textfelds ändert, auf dieses klicken. Es wird eine zufällige Anzahl von Sekunden gewartet und dann die Farbe geändert. Dabei wird dann die Zeit zwischen dem Klick und der Änderung der Farbe gemessen.
+> Spüre den Nervenkitzel und schärfe deine Reaktionsfähigkeit! Dieser Test ist darauf ausgelegt, deine Fähigkeit zu trainieren, schnell und präzise auf Veränderungen zu reagieren. Sobald sich die Farbe des Textfelds ändert, ist es deine Aufgabe, blitzschnell darauf zu klicken. Aber lass dich nicht täuschen - die Zeit zwischen den Farbwechseln wird zufällig variieren, um dich auf Trab zu halten. Jeder Klick wird genau gemessen, um deine Reaktionszeit zu bewerten.
+
+Diese App ist der perfekte nächste Schritt, um das Verständnis von Schülern in der Programmierung zu vertiefen, insbesondere nachdem sie die Grundlagen der vorherigen App gemeistert haben. Hier müssen mehr Variablen und komplexeren Wenn-Dann-Verknüpfungen eingesetzt werden, sodass Schülern ihr Verständnis in diesem Bereich vertiefen können. Darüber hinaus gibt es auch neue Bausteine, die auf der Zeit basieren, wie Timer oder Zeitstempel, die Schülern helfen, Zeit- und Ablaufsteuerung in ihre Anwendungen zu integrieren. Die Schüler werden auch lernen, wie man die verschiedenen Funktionen der App kombiniert, um komplexere Anwendungen zu erstellen.
+
+### Sequenz-Test
+
+![Sequenz](./docs/sequence/preview.png)
+
+> Bereite dich darauf vor, dein Gedächtnis zu schärfen! Dieser Test fordert dich heraus, eine zufällige Reihenfolge auf den neun Feldern zu merken und sie dann korrekt wiederzugeben. Jeder Schritt wird komplexer, da du dich an eine längere Sequenz von Eingaben erinnern musst. Kannst du die Herausforderung meistern und dein Gedächtnis auf die nächste Stufe bringen?
+
+In dieser Anwendung werden Schüler erstmals mit Schleifen-Blöcken konfrontiert, wiederkehrende Abläufe zu programmieren. Die blinkenden Schaltflächen bieten eine anschauliche Möglichkeit, die Funktionsweise der Schleifen-Blöcke zu demonstrieren und den Schülern die Bedeutung von Schleifen in der Programmierung zu verdeutlichen. Ein weiterer wichtiger Aspekt der Anwendung sind Listen, die in diesem Kontext noch intensiver behandelt werden. Schüler können ihre Kenntnisse im Umgang mit Listen vertiefen, indem sie sie in der Anwendung verwenden, um Daten wie Benutzereingaben zu organisieren und zu verwalten.
 
 ### Lösungen
 

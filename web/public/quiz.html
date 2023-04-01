@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Workshop :: Sequenz-Test</title>
+    <title>Workshop :: Wissensquiz</title>
 
     <link rel="stylesheet" href="../style/index.css" />
   </head>
-  <body data-app="sequence" class="flex flex-col">
+  <body data-app="quiz" class="flex flex-col selection:bg-slate-300">
     <nav class="p-5 flex justify-between items-center">
-      <h1 class="text-gray-900 text-3xl font-bold">Sequenz-Test</h1>
+      <h1 class="text-gray-900 text-3xl font-bold">Wissensquiz</h1>
       <a class="text-gray-900 text-md font-medium" href="index.html"
         >Zurück zur Startseite →</a
       >
     </nav>
 
-    <main class="flex flex-grow selection:bg-slate-300">
+    <main class="flex flex-grow">
       <section class="px-3 flex flex-col">
         <div id="portal">
-          <include src="./app/sequence.html"></include>
+          <include src="./app/quiz.html"></include>
         </div>
 
         <p
@@ -54,9 +54,9 @@
     </main>
 
     <script type="module" src="../lib/blocks.js"></script>
-    <script type="module" src="../lib/sequence_blocks.js"></script>
+    <script type="module" src="../lib/quiz_blocks.js"></script>
     <script type="module" src="../page.js"></script>
 
-    <include src="./data/sequence_toolbox.xml"></include>
+    <include src="./data/quiz_toolbox.xml"></include>
   </body>
 </html>

@@ -50,3 +50,39 @@ input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+.inputField {
+  @apply bg-slate-100 rounded-md w-[400px] h-[400px] flex flex-wrap content-center justify-center duration-200;
+}
+
+.inputField.correct {
+  @apply duration-200 bg-green-200;
+}
+
+.inputField.correct .squareButton {
+  @apply duration-200 bg-green-400;
+}
+
+.inputField.correct #quizInput {
+  @apply duration-200 bg-green-300;
+}
+
+.inputField.incorrect {
+  @apply duration-200 bg-red-200;
+}
+
+.inputField.incorrect .squareButton {
+  @apply duration-200 bg-red-400;
+}
+
+.inputField.incorrect #quizInput {
+  @apply duration-200 bg-red-300;
+}
+
+.squareButton {
+  @apply m-2 bg-slate-300 w-[100px] h-[100px] rounded-lg duration-300 ease-in-out active:bg-slate-500;
+}
+
+.squareButton.active {
+  @apply duration-300 ease-in-out bg-primary;
+}
