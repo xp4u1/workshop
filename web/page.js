@@ -34,8 +34,10 @@ const sendCode = (code) => {
         console.error(`Cannot send code (${error}). Creating new room...`);
 
         newRoom();
-        // Try again.
-        sendCode(code);
+        setTimeout(() => {
+          // Try again.
+          sendCode(code);
+        }, 1000);
       } else {
         logMessage(`Code wurde an den Raum ${cookies.get("room")} verschickt.`);
       }
