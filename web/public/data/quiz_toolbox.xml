@@ -1,4 +1,8 @@
-<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+<xml
+  xmlns="https://developers.google.com/blockly/xml"
+  id="toolbox"
+  style="display: none"
+>
   <category name="Logik" colour="#5b80a5">
     <block type="controls_if"></block>
     <block type="logic_compare">
@@ -16,8 +20,7 @@
     <block type="click_event"></block>
     <block type="change_question">
       <value name="text">
-        <shadow type="text">
-        </shadow>
+        <shadow type="text"></shadow>
       </value>
     </block>
     <block type="result"></block>
@@ -110,21 +113,13 @@
       <mutation statement="false" at="true"></mutation>
       <field name="MODE">GET</field>
       <field name="WHERE">FROM_START</field>
-      <value name="VALUE">
-        <block type="variables_get">
-          <field name="VAR" id="V9SxemmrrxQsv}pljxc`">Meine Liste</field>
-        </block>
-      </value>
+      <value name="VALUE"></value>
     </block>
     <block type="lists_setIndex">
       <mutation at="true"></mutation>
       <field name="MODE">SET</field>
       <field name="WHERE">FROM_START</field>
-      <value name="LIST">
-        <block type="variables_get">
-          <field name="VAR" id="V9SxemmrrxQsv}pljxc`">Meine Liste</field>
-        </block>
-      </value>
+      <value name="LIST"></value>
     </block>
   </category>
   <sep></sep>
