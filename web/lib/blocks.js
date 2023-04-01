@@ -58,8 +58,8 @@ javascriptGenerator["result"] = (block) => {
   return `{
     ${sleepFunction}
     ${log(dropdown === "correct" ? "'Richtig!'" : "'Falsch!'")}
-    document.getElementById("inputField").classList.add("${dropdown}");
+    document.querySelectorAll(".inputField").forEach((element) => element.classList.add("${dropdown}"));
     await sleep(200);
-    document.getElementById("inputField").classList.remove("${dropdown}");
+    document.querySelectorAll(".inputField").forEach((element) => element.classList.remove("${dropdown}"));
   }\n`;
 };

@@ -51,31 +51,31 @@ input[type="number"] {
   appearance: textfield;
 }
 
-#inputField {
+.inputField {
   @apply bg-slate-100 rounded-md w-[400px] h-[400px] flex flex-wrap content-center justify-center duration-200;
 }
 
-#inputField.correct {
+.inputField.correct {
   @apply duration-200 bg-green-200;
 }
 
-#inputField.correct .squareButton {
+.inputField.correct .squareButton {
   @apply duration-200 bg-green-400;
 }
 
-#inputField.correct #quizInput {
+.inputField.correct #quizInput {
   @apply duration-200 bg-green-300;
 }
 
-#inputField.incorrect {
+.inputField.incorrect {
   @apply duration-200 bg-red-200;
 }
 
-#inputField.incorrect .squareButton {
+.inputField.incorrect .squareButton {
   @apply duration-200 bg-red-400;
 }
 
-#inputField.incorrect #quizInput {
+.inputField.incorrect #quizInput {
   @apply duration-200 bg-red-300;
 }
 
