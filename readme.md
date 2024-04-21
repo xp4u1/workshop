@@ -1,8 +1,8 @@
 # Workshop
 
-In diesem Workshop werdem die Grundlagen der Programmierlogik möglichst einfach und selbsterklärend vermittelt. Dabei wird bewusst keine „echte“ Programmiersprache verwendet, um einen einfacheren Zugang zum Programmieren zu ermöglichen.
+In diesem Workshop werden die Grundlagen der Programmierlogik möglichst einfach und selbsterklärend vermittelt. Dabei wird bewusst keine „echte“ Programmiersprache verwendet, um einen einfacheren Zugang zum Programmieren zu ermöglichen.
 
-*Diese Anwendung ist nicht dafür ausgelegt, sich Programmieren selbst beizubringen. Sie diehnt als Grundlage für den Workshop.*
+*Diese Anwendung ist nicht dafür ausgelegt, sich Programmieren selbst beizubringen. Sie dient als Grundlage für den Workshop.*
 
 ## Apps
 
