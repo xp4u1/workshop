@@ -12,10 +12,10 @@ Bevor die App benutzt werden kann, muss eine `network.json` Konfiguration einger
 
 ```sh
 # Pakete herunterladen
-$ yarn
+$ pnpm install
 
 # Anwendung im Entwicklungsmodus starten
-$ yarn start
+$ pnpm start
 ```
 
 ## App benutzen
