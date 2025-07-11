@@ -43,20 +43,20 @@ Musterlösungen für die Apps sind im Verzeichnis [`/docs`](./docs) zu finden.
 $ git clone git@github.com:xp4u1/workshop
 
 # Pakete herunterladen
-$ yarn
+$ pnpm install
 
 # Anwendung im Entwicklungsmodus starten
-$ yarn start
+$ pnpm start
 ```
 
 ### Build
 
 ```sh
 # Build (production ready)
-$ yarn build
+$ pnpm build
 
 # In Unterverzeichnis, z. B. "example.com/workshop"
-$ yarn build --public-url "/workshop"
+$ pnpm build --public-url "/workshop"
 ```
 
 Nach dem Erstellen befindet sich der Build im Verzeichnis `/dist`. Die Dateien im `/dist/web` Verzeichnis können auch ohne den Express-Server ausgeführt werden. Wenn der Express-Server verwendet wird, kann man ein Test-Gerät hinzufügen, indem man `deine-url.com/companion.html` aufruft. Sobald der Anwender auf „Code ausführen“ klickt, wird der generierte Code an das Test-Gerät gesendet. Die Companion-Seite kann im Browser aufgerufen werden, aber es besteht auch die Möglichkeit, eine App zu verwenden. Weitere Informationen dazu findest du [hier](./app).
