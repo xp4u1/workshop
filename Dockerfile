@@ -1,24 +1,31 @@
-## Building stage
+FROM node:24-alpine AS base
 
-FROM node:24-alpine as builder
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 
-WORKDIR /usr/src
-COPY . .
+# Build
 
-RUN yarn install
-RUN yarn parcel build
+FROM base AS builder
 
-## Production stage
+WORKDIR /app
 
-FROM node:24-alpine
+COPY package.json pnpm-lock.yaml /app/
+RUN pnpm install --frozen-lockfile
 
-COPY --from=builder /usr/src/dist/server/index.js /usr/src/app/server.js
-COPY --from=builder /usr/src/dist/web /usr/src/app/web
+COPY . /app
+RUN pnpm build
 
-WORKDIR /usr/src/app
+# Production
 
-ENV STATIC_DIR="/usr/src/app/web"
+FROM base
+
+COPY --from=builder /app/node_modules /app/node_modules
+COPY --from=builder /app/dist/server/index.js /app/server.js
+COPY --from=builder /app/dist/web /app/static
+
+ENV STATIC_DIR="/app/static"
 ENV NODE_ENV=production
 
 EXPOSE 3000
-CMD ["node", "/usr/src/app/server.js"]
+CMD [ "node", "/app/server.js" ]
