@@ -26,11 +26,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
       # Build
       - name: Install dependencies
-        run: yarn
+        run: pnpm install
       - name: Build project
-        run: yarn build --public-url "/workshop"
+        run: pnpm build --public-url "/workshop"
       # Save
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
