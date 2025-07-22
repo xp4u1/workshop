@@ -11,6 +11,7 @@ export const logMessage = (message, type = "info") => {
  * Removes all event listeners for each element with the attribute `data-event`.
  */
 export const removeAllListeners = () => {
+  window.click_handler = async () => {};
   document.querySelectorAll("[data-event]").forEach((element) => {
     let clone = element.cloneNode(true);
     element.replaceWith(clone);
