@@ -78,7 +78,7 @@ javascriptGenerator["highlightsquare"] = (block) => {
   return `{
     ${sleepFunction}
     const index = ${value_index} - 1;
-    const squares = document.querySelectorAll(".squareButton");
+    const squares = document.querySelectorAll("[data-app='sequence'] .squareButton");
 
     squares[index].classList.add("active");
     await sleep(300);

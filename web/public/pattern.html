@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workshop :: Muster-Test</title>
+
+    <link rel="stylesheet" href="../style/index.css" />
+  </head>
+  <body data-app="pattern" class="flex flex-col">
+    <nav class="p-5 flex justify-between items-center">
+      <h1 class="text-gray-900 text-3xl font-bold">Muster-Test</h1>
+      <a class="text-gray-900 text-md font-medium" href="index.html"
+        >Zurück zur Startseite →</a
+      >
+    </nav>
+
+    <main class="flex flex-grow selection:bg-slate-300">
+      <section class="px-3 flex flex-col">
+        <div id="portal">
+          <include src="./app/pattern.html"></include>
+        </div>
+
+        <p
+          id="errorMessage"
+          class="hidden mt-5 text-center font-bold text-red-600 bg-red-200 rounded-md"
+        >
+          Beim Ausführen ist ein Fehler aufgetreten!
+        </p>
+
+        <div class="mt-5 text-right">
+          <button
+            class="bg-primary p-2 rounded-md text-white"
+            id="executeButton"
+          >
+            Code ausführen
+          </button>
+          <button
+            class="bg-slate-500 p-2 rounded-md text-white"
+            id="saveButton"
+          >
+            Speichern
+          </button>
+        </div>
+
+        <div
+          class="flex-grow mt-20 p-5 bg-slate-100 rounded-t-md w-[400px] font-mono"
+        >
+          <div class="space-y-2" id="console"></div>
+        </div>
+      </section>
+      <section class="w-full" id="blocklyDiv"></section>
+    </main>
+
+    <script type="module" src="../lib/blocks.js"></script>
+    <script type="module" src="../lib/pattern_blocks.js"></script>
+    <script type="module" src="../page.js"></script>
+
+    <include src="./data/pattern_toolbox.xml"></include>
+  </body>
+</html>
