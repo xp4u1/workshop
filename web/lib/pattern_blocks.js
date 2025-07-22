@@ -139,7 +139,7 @@ javascriptGenerator["highlight_squares"] = (block) => {
   return `{
     ${sleepFunction}
     const ids = ${value_indexes}.map((square_id) => square_id - 1);
-    const squares = document.querySelectorAll(".squareButton");
+    const squares = document.querySelectorAll("[data-app='pattern'] .squareButton");
 
     ids.forEach((id) => squares[id].classList.add("active"));
     await sleep(1000);
@@ -155,7 +155,7 @@ javascriptGenerator["create_grid"] = (block) => {
   return `{
     const size = Number.parseInt(${dropdown});
     const label = ["", "", "", "three", "four", "five"];
-    const field = document.querySelector(".inputField");
+    const field = document.querySelector(".inputField[data-app='pattern']");
     field.innerHTML = ""
 
     for (let index = 0; index < size * size; index++) {
